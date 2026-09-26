@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Birthday Jar 💗</title>
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg,#ffe4ef,#eee5ff,#e0f5ff);
+  font-family: "Trebuchet MS", sans-serif;
+  text-align: center;
+  color: #76506f;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  padding: 25px 18px;
+  border: 3px solid white;
+  border-radius: 30px;
+  background: #ffffffd9;
+  box-shadow: 0 10px 30px #9875a533;
+}
+
+h1 {
+  color: #cf6597;
+  font-family: Georgia,serif;
+  font-size: 28px;
+}
+
+.subtitle {
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.jar {
+  border: 0;
+  background: none;
+  font-size: 120px;
+  cursor: pointer;
+  display: block;
+  margin: 15px auto;
+  transition: transform .2s;
+}
+
+.jar:active { transform: scale(.9) rotate(-5deg); }
+
+.hint {
+  color: #a16c9a;
+  font-size: 13px;
+}
+
+.note {
+  min-height: 130px;
+  padding: 20px;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #e6a1b6;
+  border-radius: 20px;
+  background: #fff5c9;
+  box-shadow: 0 5px 12px #9c77951c;
+  font-family: Georgia,serif;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #79536a;
+}
+
+.next {
+  border: 0;
+  border-radius: 30px;
+  background: #e88ab5;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 13px 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #c76d99;
+}
+
+.next:active {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+
+.footer {
+  margin-top: 22px;
+  font-size: 12px;
+  color: #a17c9b;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div>♡ ✿ ⋆ ♡</div>
+  <h1>For My Favourite Idiot 💗</h1>
+  <p class="subtitle">
+    A jar full of memories, roasts and love.
+    Don't get emotional. 😂
+  </p>
+
+  <button class="jar" onclick="openNote()"
+    aria-label="Open the jar">🫙</button>
+
+  <div class="hint">Tap the jar to open a note! 💌</div>
+  <div class="note" id="note">
+    Your first surprise is waiting... 💗
+  </div>
+
+  <button class="next" onclick="openNote()">
+    Open another note 💌
+  </button>
+
+  <div class="footer">
+    Made with love (and a little hatred) ♡
+  </div>
+</div>
+
+<script>
+// CHANGE YOUR MESSAGES HERE
+const notes = [
+  "You're older, but definitely not wiser. 😂",
+  "Remember, I'm still the favourite child.",
+  "Thanks for being my personal headache.",
+  "I miss annoying you in person!",
+  "You're lucky to have such an amazing sibling.",
+  "No matter how far away you go, you're stuck with me. 💗",
+  "Happy birthday, idiot. Love you! ❤️",
+  "Remember all our childhood fights? I still won.",
+  "You are the most annoying person I know.",
+  "I hope your birthday is as amazing as me."
+];
+
+let remaining = [...notes];
+
+function openNote() {
+  if (remaining.length === 0) {
+    remaining = [...notes];
+  }
+
+  const index = Math.floor(
+    Math.random() * remaining.length
+  );
+
+  const message = remaining.splice(index, 1)[0];
+  document.getElementById("note").textContent = message;
+}
+</script>
+</body>
+</html>
